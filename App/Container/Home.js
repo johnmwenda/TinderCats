@@ -100,17 +100,29 @@ class Home extends Component {
     return (
       <View style={styles.card} >
         <Text>No More Cards</Text>
+         <TouchableOpacity onPress={()=>this.goBackHome()}>
+          <Text>Reload!</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={RoundedButtonStyles.button} onPress={()=>this.goBackHome()}>
+          <Text style={RoundedButtonStyles.buttonText}>Reload</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 
-  yup(){
-    console.log(this.refs['swiper'])
-this.refs['swiper']._goToNextCard()  }
+  goBackHome() {
+    this.props.navigation.navigate('Home');
+  }
 
-nope(){
-    console.log(this.refs['swiper'])
-this.refs['swiper']._goToNextCard()  }
+  yup(){
+      // console.log(this.refs['swiper'])
+    this.refs['swiper']._goToNextCard()
+  }
+
+  nope(){
+      // console.log(this.refs['swiper'])
+    this.refs['swiper']._goToNextCard()  
+  }
 
   render() {
     return (
@@ -129,17 +141,39 @@ this.refs['swiper']._goToNextCard()  }
         <Text>Nope!</Text>
         </TouchableOpacity>
         <TouchableOpacity style = {styles.buttonSmall}>
-          <Text>!</Text>
+          <Text>asd!</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity style = {styles.buttons} onPress = {() => this.yup()}>
         <Text>Yay!</Text>
         </TouchableOpacity>
+
         </View>
         </View>
     )
 }
 }
 //onPress = {() => this.renderNope()} 
+
+const RoundedButtonStyles = StyleSheet.create({
+  button: {
+    height: 45,
+    borderRadius: 5,
+    marginHorizontal: 25,
+    marginVertical: 10,
+    backgroundColor: '#e73536',
+    justifyContent: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 14,
+    marginVertical: 10,
+    paddingRight: 10,
+    paddingLeft: 10
+  }
+})
 
 const styles = StyleSheet.create({
   container: {
